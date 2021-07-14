@@ -13,7 +13,7 @@ class NetworkService {
   BaseOptions _baseOptions = new BaseOptions(
     baseUrl: "http://192.168.0.117:45455/",
     connectTimeout: 10000,
-    receiveTimeout: 10000,
+    receiveTimeout: 6000,
     contentType: 'application/json',
   );
 

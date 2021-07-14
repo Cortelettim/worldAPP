@@ -7,8 +7,8 @@ class CidadeDTO {
   int estadoId;
 
   CidadeDTO.map(Map<String, dynamic> json) {
-    this.cidadeId = json['PaisId'];
-    this.nomeCidade = json['NomePais'];
+    this.cidadeId = json['CidadeId'];
+    this.nomeCidade = json['NomeCidade'];
     this.estadoId = json['EstadoId'];
     this.estado = json['Estado'] as EstadoDTO;
   }
