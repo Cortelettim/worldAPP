@@ -19,4 +19,39 @@ class EstadoService {
       throw (error);
     });
   }
+   Future<EstadoDTO> getEstadoById(int id) async {
+    return await network
+        .request(HttpMethod.GET, 'api/Estado/$id')
+        .then((response) async {
+      if (response != null) {
+        return EstadoDTO.map(response.data);
+      } else {
+        return null;
+      }
+    }).catchError((error) {
+      throw (error);
+    });
+  }
+   Future<dynamic> cadastrarEstado(EstadoDTO estado) async {
+    return await network
+        .request(HttpMethod.POST, 'api/Estado', body: estado)
+        .catchError((error) {
+      throw (error);
+    });
+  }
+  Future<dynamic> atualizarEstado(EstadoDTO estado) async {
+    return await network
+        .request(HttpMethod.PUT, 'api/Estado/${estado.estadoId}', body: estado)
+        .catchError((error) {
+      throw (error);
+    });
+  }
+
+  Future<dynamic> deleteEstado(int id) async  {
+    return await network
+      .request(HttpMethod.DELETE, 'api/Estado/$id')
+      .catchError((error) {
+        throw (error);
+      });
+  }
 }

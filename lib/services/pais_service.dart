@@ -32,4 +32,28 @@ class PaisService {
       throw (error);
     });
   }
+
+  Future<dynamic> cadastrarPais(PaisDTO pais) async {
+    return await network
+        .request(HttpMethod.POST, 'api/Pais', body: pais)
+        .catchError((error) {
+      throw (error);
+    });
+  }
+
+  Future<dynamic> atualizarPais(PaisDTO pais) async {
+    return await network
+        .request(HttpMethod.PUT, 'api/Pais/${pais.paisId}', body: pais)
+        .catchError((error) {
+      throw (error);
+    });
+  }
+
+  Future<dynamic> deletePais(int id) async  {
+    return await network
+      .request(HttpMethod.DELETE, 'api/Pais/$id')
+      .catchError((error) {
+        throw (error);
+      });
+  }
 }
